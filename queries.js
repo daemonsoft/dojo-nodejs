@@ -54,7 +54,7 @@ function createRestaurant(req, res, next){
 };
 
 function removeRestaurant(req, res, next){
-	var restaurantID = parseIn(req.params.id);
+	var restaurantID = parseInt(req.params.id);
 	db.result('delete from restaurant where id = $1' ,restaurantID)
 	.then(function(){
 		res.status(200).json({
